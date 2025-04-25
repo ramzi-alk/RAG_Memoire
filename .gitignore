@@ -1,0 +1,68 @@
+# Fichiers et dossiers générés par Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Environnements virtuels
+venv/
+env/
+ENV/
+.env
+
+# Distribution et packaging
+*.spec
+
+# Dossiers spécifiques au projet RAG
+data/pdf_cache/
+chroma_db/
+docss/
+docs/
+
+# Fichiers sensibles et de configuration
+.env
+config.json
+app_settings.json
+
+# Fichiers de logs et temporaires
+*.log
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Dossiers de l'IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Fichiers Docker générés
+.docker/
+
+# Cache et fichiers temporaires
+.cache/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Fichiers d'exécutables générés
+*.exe
+*.dll 

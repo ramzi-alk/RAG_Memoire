@@ -1,0 +1,25 @@
+# Dossiers de données et caches
+data/
+chroma_db/
+docss/
+documents/
+dist/
+build/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Dossiers et fichiers spécifiques
+.env
+.git
+.gitignore
+.vscode
+*.spec
+README.md
+guide_utilisation.md
+
+# Fichiers temporaires
+*.log
+*.tmp
+.DS_Store 
