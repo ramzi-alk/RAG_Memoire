@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  # Service pour l'application RAG en mode CLI
+  rag-cli:
+    build: .
+    image: rag-system
+    container_name: rag-system-cli
+    volumes:
+      - ./documents:/app/documents
+      - ./data:/app/data
+      - ./chroma_db:/app/chroma_db
+      - ./.env:/app/.env
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+    command: python main.py init --data-dir ./data --db-dir ./chroma_db --collection docss
+    # Pour traiter des documents:
+    # command: python main.py process --pdf-dir ./documents --recursive
+    # Pour exécuter une requête:
+    # command: python main.py query --query "Votre question ici"
+
+  # Service pour l'interface graphique (nécessite des configurations supplémentaires pour X11)
+  # Note: Cette configuration fonctionne principalement sous Linux avec le serveur X configuré
+  rag-gui:
+    build: .
+    image: rag-system
+    container_name: rag-system-gui
+    volumes:
+      - ./documents:/app/documents
+      - ./data:/app/data
+      - ./chroma_db:/app/chroma_db
+      - ./.env:/app/.env
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    environment:
+      - DISPLAY=${DISPLAY}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+    command: python gui.py
+    # Décommentez pour les systèmes Linux avec serveur X
+    # network_mode: host 
